@@ -1,7 +1,12 @@
-Bienvenido
 
-{% if app.session.hasFlash('notice') %}
-	<div class="flash-notice">
-			{{ app.session.flash('notice') }}
-	</div>
-{%endif%}
+{% extends 'GcaWebBundle::layout.html.twig' %}
+
+
+{% block title %} Saludo {% endblock %}
+	<form action="{{path(''}}"> </form>
+
+{% block body %}
+ 	 
+{% endblock %}
+
+
