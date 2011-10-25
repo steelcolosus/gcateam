@@ -1,0 +1,3 @@
+GcaWebBundle_homepage:
+    pattern:  /hello/{name}/{apellido}
+    defaults: { _controller: GcaWebBundle:Default:index }

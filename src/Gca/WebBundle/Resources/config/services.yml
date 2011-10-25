@@ -1,0 +1,7 @@
+parameters:
+#    gca_web.example.class: Gca\WebBundle\Example
+
+services:
+#    gca_web.example:
+#        class: %gca_web.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
