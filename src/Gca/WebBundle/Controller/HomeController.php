@@ -12,7 +12,16 @@ class HomeController extends Controller
     public function indexAction()
     {
 			
-		return $this->render('GcaWebBundle:Home:index.html.twig');
+		return $this->render('GcaWebBundle:Home:home.html.twig');
 			
+    }
+    function loginAction() {
+    	
+    	return $this->render('GcaWebBundle:Home:login.html.twig');
+    	
+    }
+    public function registerAction() {
+    	
+    	return $this->render('GcaWebBundle:Home:register.html.twig');
     }
 }
