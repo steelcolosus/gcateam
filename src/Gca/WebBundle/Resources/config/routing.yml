@@ -4,7 +4,10 @@ GcaWebBundle_homepage:
 
 _login_page:
     pattern: /login
-    defaults: { _controller: GcaWebBundle:Home:login }
+    defaults: { _controller: GcaWebBundle:Home:login }.
+
+login_check:
+    pattern:   /login_check
 
 _register:
     pattern: /register

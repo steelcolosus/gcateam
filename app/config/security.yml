@@ -7,24 +7,18 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        in_memory:
+        main_provider:
+            entity: {class: Gca\WebBundle\Entity\Usuario, property: email}
+        
             users:
                 user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                 admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
         secured_area:
-            pattern:    ^/demo/secured/
+            pattern:    ^/
             form_login:
-                check_path: /demo/secured/login_check
+                check_path: /login
                 login_path: /demo/secured/login
             logout:
                 path:   /demo/secured/logout
