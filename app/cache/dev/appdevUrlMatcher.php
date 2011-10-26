@@ -136,8 +136,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // GcaWebBundle_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]+?)/(?P<apellido>[^/]+?)$#xs', $pathinfo, $matches)) {
-            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Gca\\WebBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'GcaWebBundle_homepage'));
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'GcaWebBundle_homepage');
+            }
+            return array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::indexAction',  '_route' => 'GcaWebBundle_homepage',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
