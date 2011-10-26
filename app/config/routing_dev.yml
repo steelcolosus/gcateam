@@ -3,8 +3,8 @@ GcaWebBundle:
     prefix:   /
 
 #_welcome:
- #   pattern:  /
-  #  defaults: { _controller: AcmeDemoBundle:Welcome:index }
+#   pattern:  /
+#  defaults: { _controller: AcmeDemoBundle:Welcome:index }
 
 _demo_secured:
     resource: "@AcmeDemoBundle/Controller/SecuredController.php"
