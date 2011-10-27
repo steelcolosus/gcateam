@@ -6,9 +6,13 @@ _login_page:
     pattern: /login
     defaults: { _controller: GcaWebBundle:Home:login }.
 
-login_check:
-    pattern:   /login_check
-
 _register:
     pattern: /register
     defaults: { _controller: GcaWebBundle:Home:register }
+
+check_path:
+    pattern:   /login_check
+    
+logout:
+    pattern: /logout
+

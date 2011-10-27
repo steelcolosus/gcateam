@@ -1,13 +1,13 @@
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Gca\WebBundle\Entity\Usuario: sha512
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        main_provider:
+        main:
             entity: {class: Gca\WebBundle\Entity\Usuario, property: email}
         
             users:
@@ -16,17 +16,18 @@ security:
 
     firewalls:
         secured_area:
-            pattern:    ^/login
+            pattern:    ^/
             form_login:
-                check_path: /login_check
                 login_path: /login
+                check_path: /login_check
             logout:
                 path:   /logout
                 target: /
-            #anonymous: ~
+            anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
+        - { path: ^/home, roles: ROLE_USER }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }

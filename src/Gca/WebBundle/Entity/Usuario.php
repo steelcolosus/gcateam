@@ -2,6 +2,8 @@
 
 namespace Gca\WebBundle\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,8 +12,29 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="usuario")
  * @ORM\Entity
  */
-class Usuario
+class Usuario implements UserInterface
 {
+	public function getUsername(){
+		return $this->email;
+	}
+	
+
+	public function getRoles(){
+		return array('ROLE_USER');
+	}
+	
+	public function getSalt(){
+		return false;
+	}
+	
+	public function eraseCredentials(){
+		return false;
+	}
+	
+	public function equals(UserInterface $user){
+		return $this->getUsername()== $user->getUsername();
+	}
+	
     /**
      * @var string $email
      *
@@ -29,11 +52,11 @@ class Usuario
     private $idusuario;
 
     /**
-     * @var string $passord
+     * @var string $password
      *
-     * @ORM\Column(name="passord", type="string", length=45, nullable=false)
+     * @ORM\Column(name="password", type="string", length=45, nullable=false)
      */
-    private $passord;
+    private $password;
 
     /**
      * @var string $nombre
@@ -89,23 +112,23 @@ class Usuario
     }
 
     /**
-     * Set passord
+     * Set password
      *
-     * @param string $passord
+     * @param string $password
      */
-    public function setPassord($passord)
+    public function setPassword($password)
     {
-        $this->passord = $passord;
+        $this->password = $password;
     }
 
     /**
-     * Get passord
+     * Get password
      *
      * @return string 
      */
-    public function getPassord()
+    public function getPassword()
     {
-        return $this->passord;
+        return $this->password;
     }
 
     /**
