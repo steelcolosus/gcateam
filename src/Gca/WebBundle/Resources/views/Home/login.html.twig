@@ -2,7 +2,11 @@
 {% block title %} Iniciar Sesion {% endblock %}
 
 {% block body %}
+
+{{ error.message }}
+
 	<div class="div_loggIn">
+		
 	 	 <form action="{{path('check_path')}}" method="post">
 	 	 	<table>
 				<tr><td>Email:    </td><td><input type="text" name="_username"/>    				    </td></tr>

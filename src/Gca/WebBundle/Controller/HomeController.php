@@ -2,6 +2,8 @@
 
 namespace Gca\WebBundle\Controller;
 
+use Symfony\Component\Security\Core\SecurityContext;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +19,12 @@ class HomeController extends Controller
     }
     function loginAction() {
     	
-    	return $this->render('GcaWebBundle:Home:login.html.twig');
+    	return $this->render('GcaWebBundle:Home:login.html.twig', array(
+					'error'=>$this->get('request')
+								  ->getSession()
+								  ->get(SecurityContext::AUTHENTICATION_ERROR)
+				
+				));
     	
     }
     public function registerAction() {

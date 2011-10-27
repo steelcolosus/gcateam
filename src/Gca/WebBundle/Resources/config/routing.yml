@@ -1,5 +1,5 @@
 GcaWebBundle_homepage:
-    pattern:  /
+    pattern:  /home
     defaults: { _controller: GcaWebBundle:Home:index }
 
 _login_page:
