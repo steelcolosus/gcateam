@@ -10,6 +10,10 @@ _register:
     pattern: /register
     defaults: { _controller: GcaWebBundle:Home:register }
 
+despedida_page:
+    pattern: /despedida
+    defaults: { _controller: GcaWebBundle:Home:despedida }
+
 check_path:
     pattern:   /login_check
     

@@ -22,7 +22,7 @@ security:
                 check_path: /login_check
             logout:
                 path:   /logout
-                target: /
+                target: /despedida
             anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
