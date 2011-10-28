@@ -1,12 +1,12 @@
-GcaWebBundle_homepage:
+home_page:
     pattern:  /home
     defaults: { _controller: GcaWebBundle:Home:index }
 
-_login_page:
+login_page:
     pattern: /login
     defaults: { _controller: GcaWebBundle:Home:login }.
 
-_register:
+register_page:
     pattern: /register
     defaults: { _controller: GcaWebBundle:Home:register }
 
@@ -17,6 +17,6 @@ despedida_page:
 check_path:
     pattern:   /login_check
     
-logout:
+logout_page:
     pattern: /logout
 

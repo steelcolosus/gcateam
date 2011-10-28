@@ -1,25 +1,27 @@
 {% extends 'GcaWebBundle::layout.html.twig' %}
 {% block title %} Iniciar Sesion {% endblock %}
-
+{% block stylesheet %}
+ 
+{% endblock %}
 {% block body %}
 
-{% if error %}
-    <div class="error">{{ error.message }}</div>
-{% endif %}
-
-	<div class="div_loggIn">
-		
-	 	 <form action="{{path('check_path')}}" method="post">
-	 	 	<table>
-				<tr><td> Email:    </td><td><input type="text" name="_username"/>    				    </td></tr>
-				<tr><td> Password: </td><td><input type="password" name="_password"> 					</td></tr>
-				<tr><td>           </td><td><input type="submit" value="Ingresar">   </td></tr>	
-	 	 	</table>
-	 	 </form>
- 	</div>
- 	<div class="registrarse">
- 		
- 	</div>
+	{% if error %}
+	    <div class="error">{{ error.message }}</div>
+	{% endif %}
+	
+		<div class="div_login">
+			
+		 	 <form action="{{path('check_path')}}" method="post">
+		 	 	<table>
+					<tr><td> Email:    </td><td><input type="text" name="_username"/>    				    </td></tr>
+					<tr><td> Password: </td><td><input type="password" name="_password"> 					</td></tr>
+					<tr><td>           </td><td><input type="submit" value="Ingresar">   </td></tr>	
+		 	 	</table>
+		 	 </form>
+	 	</div>
+	 	<div class="registrarse">
+	 		
+	 	</div>
 {% endblock %}
 
 
