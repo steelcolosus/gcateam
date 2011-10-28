@@ -1,0 +1,15 @@
+127.0.0.1 - - [28/Oct/2011:15:59:39 -0600] "GET /app_dev.php/ HTTP/1.1" 404 6117
+127.0.0.1 - - [28/Oct/2011:15:59:42 -0600] "GET /bundles/framework/images/logo_symfony.gif HTTP/1.1" 200 1992
+127.0.0.1 - - [28/Oct/2011:15:59:42 -0600] "GET /bundles/framework/css/exception_layout.css HTTP/1.1" 200 1136
+127.0.0.1 - - [28/Oct/2011:15:59:42 -0600] "GET /bundles/framework/css/exception.css HTTP/1.1" 200 1939
+127.0.0.1 - - [28/Oct/2011:15:59:42 -0600] "GET /bundles/framework/images/exception_detected.gif HTTP/1.1" 200 4290
+127.0.0.1 - - [28/Oct/2011:15:59:42 -0600] "GET /bundles/framework/images/grey_magnifier.png HTTP/1.1" 200 1030
+127.0.0.1 - - [28/Oct/2011:15:59:42 -0600] "GET /bundles/framework/images/open_quote.gif HTTP/1.1" 200 574
+127.0.0.1 - - [28/Oct/2011:15:59:42 -0600] "GET /bundles/framework/images/close_quote.gif HTTP/1.1" 200 576
+127.0.0.1 - - [28/Oct/2011:15:59:42 -0600] "GET /bundles/framework/images/blue_picto_less.gif HTTP/1.1" 200 488
+127.0.0.1 - - [28/Oct/2011:15:59:42 -0600] "GET /bundles/framework/images/blue_picto_more.gif HTTP/1.1" 200 504
+127.0.0.1 - - [28/Oct/2011:15:59:43 -0600] "GET /bundles/framework/images/input_bg.gif HTTP/1.1" 200 353
+127.0.0.1 - - [28/Oct/2011:15:59:43 -0600] "GET /bundles/framework/images/btn_bg.png HTTP/1.1" 200 428
+127.0.0.1 - - [28/Oct/2011:15:59:43 -0600] "GET /bundles/framework/images/border_l.png HTTP/1.1" 200 658
+127.0.0.1 - - [28/Oct/2011:15:59:43 -0600] "GET /bundles/framework/images/border_r.png HTTP/1.1" 200 681
+127.0.0.1 - - [28/Oct/2011:15:59:43 -0600] "GET /app_dev.php/_wdt/4eab25ce3d535 HTTP/1.1" 200 11623
