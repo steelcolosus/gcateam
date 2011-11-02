@@ -43,46 +43,46 @@ class HomeController extends Controller
 	public function registerAction(Request $request) {
 		
 		
-//		$usuario = new Usuario();
-//		$form = $this->createForm(new UsuarioType(),$usuario);
+		$usuario = new Usuario();
+		$form = $this->createForm(new UsuarioType(),$usuario);
 		
-// 		if ($request->getMethod()=='POST') {
-// 			$form->bindRequest($request);
-// 			if ($form->isValid()){
-// 				//Seteamos el mensaje de registro satisfactorio
-// 				$session = $request->getSession();
-// 				$session->setFlash('mensaje','Gracias por registrar sus datos');
+ 		if ($request->getMethod()=='POST') {
+ 			$form->bindRequest($request);
+ 			if ($form->isValid()){
+ 				//Seteamos el mensaje de registro satisfactorio
+ 				$session = $request->getSession();
+ 				$session->setFlash('mensaje','Gracias por registrar sus datos');
 				
-// 				//obtenemos los datos
-// 				$usuario = $form->getData();
+ 				//obtenemos los datos
+ 				$usuario = $form->getData();
 				
-// 				//Codificamos la contraseña
-// 				$factory = $this->get('security.encoder_factory');
-// 				$codificador = $factory->getEncoder($usuario);
-// 				$password = $codificador->encodePassword($usuario->getPassword(), $usuario->getSalt());
-// 				$usuario->setPassword($password);
+ 				//Codificamos la contraseña
+ 				$factory = $this->get('security.encoder_factory');
+ 				$codificador = $factory->getEncoder($usuario);
+ 				$password = $codificador->encodePassword($usuario->getPassword(), $usuario->getSalt());
+ 				$usuario->setPassword($password);
 				
-// 				//Guardamos el usuario en la base de datos
-// 				$em = $this->getDoctrine()->getEntityManager();
-// 				$em->persist($usuario);
-// 				$em->flush();
+ 				//Guardamos el usuario en la base de datos
+ 				$em = $this->getDoctrine()->getEntityManager();
+ 				$em->persist($usuario);
+ 				$em->flush();
 				
-//      			//logueamos al usuario
+      			//logueamos al usuario
      			
-// 				$token = new UsernamePasswordToken($usuario, null, 'main', $usuario->getRoles());
-// 				$this->get('security.context')->setToken($token);
+ 				$token = new UsernamePasswordToken($usuario, null, 'main', $usuario->getRoles());
+ 				$this->get('security.context')->setToken($token);
 								
 				
-// 				return $this->render('GcaWebBundle:Home:bienvenido.html.twig',
-// 						array(
-// 								'name'=>$usuario->getNombre()." ".$usuario->getApellido()													
-// 							)
-// 						);
+ 				return $this->render('GcaWebBundle:Home:bienvenido.html.twig',
+ 						array(
+ 								'name'=>$usuario->getNombre()." ".$usuario->getApellido()													
+ 							)
+ 						);
 				
-// 			};
-// 		}
+ 			};
+ 		}
 		
-		return $this->render('GcaWebBundle:Home:register.html.twig'/*,array('form' => $form->createView())*/);
+		return $this->render('GcaWebBundle:Home:register.html.twig',array('form' => $form->createView()));
 	}
 	
 	function despedidaAction() {

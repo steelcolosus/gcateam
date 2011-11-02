@@ -12,44 +12,63 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="usuario")
  * @ORM\Entity
  */
-class Usuario implements UserInterface
+class Usuario implements UserInterface , \Serializable
 {
-	public function getUsername(){
-		return $this->email;
-	}
+	//metodos de interfaz
+		public function getUsername(){
+			return $this->email;
+		}
+		
+		public function getRoles(){
+			
+		
+			return array('ROLE_USER');
+		}
+		
+		public function getSalt(){
+			return false;
+		}
+		
+		public function eraseCredentials(){
+			return false;
+		}
+		
+		public function equals(UserInterface $user){
+			return $this->getUsername()== $user->getUsername();
+		}
+		
 	
+	//metodos de serializacion
+		public function serialize()
+		{
+			return serialize(array(
+					$this->getEmail()
+			));
+		}
+		
+		public function unserialize($serialized)
+		{
+			$arr = unserialize($serialized);
+			$this->setEmail($arr[0]);
+		}
+	
+	
+	
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
 
-	public function getRoles(){
-		return array('ROLE_USER');
-	}
-	
-	public function getSalt(){
-		return false;
-	}
-	
-	public function eraseCredentials(){
-		return false;
-	}
-	
-	public function equals(UserInterface $user){
-		return $this->getUsername()== $user->getUsername();
-	}
-	
     /**
      * @var string $email
      *
      * @ORM\Column(name="email", type="string", length=45, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $email;
-
-    /**
-     * @var integer $idusuario
-     *
-     * @ORM\Column(name="idusuario", type="integer", nullable=false)
-     */
-    private $idusuario;
 
     /**
      * @var string $password
@@ -82,6 +101,26 @@ class Usuario implements UserInterface
 
 
     /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
      * Get email
      *
      * @return string 
@@ -89,26 +128,6 @@ class Usuario implements UserInterface
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Set idusuario
-     *
-     * @param integer $idusuario
-     */
-    public function setIdusuario($idusuario)
-    {
-        $this->idusuario = $idusuario;
-    }
-
-    /**
-     * Get idusuario
-     *
-     * @return integer 
-     */
-    public function getIdusuario()
-    {
-        return $this->idusuario;
     }
 
     /**
