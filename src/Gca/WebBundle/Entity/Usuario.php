@@ -80,7 +80,7 @@ class Usuario implements UserInterface , \Serializable
     /**
      * @var string $nombre
      *
-     * @ORM\Column(name="Nombre", type="string", length=45, nullable=true)
+     * @ORM\Column(name="Nombre", type="string", length=500, nullable=true)
      */
     private $nombre;
 
