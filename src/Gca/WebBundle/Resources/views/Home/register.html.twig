@@ -1,0 +1,22 @@
+{% extends 'GcaWebBundle::layout.html.twig' %}
+
+{% block body %}
+
+{% if( app.session.flash('notice') ) %}
+<div class="notice">
+	<p>
+	{{ app.session.flash('notice') }}
+	</p>
+</div>
+{% endif %}
+
+{{ form_errors(form) }}
+
+
+<form action="{{ path('register_page') }}" method="post" {{ form_enctype(form) }}>
+	{{ form_widget(form) }}
+	<input type="submit" value="Regístrate" />
+</form>
+
+
+{% endblock %}
