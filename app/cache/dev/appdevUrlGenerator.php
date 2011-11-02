@@ -32,7 +32,12 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        '_configurator_home' => true,
        '_configurator_step' => true,
        '_configurator_final' => true,
-       'GcaWebBundle_homepage' => true,
+       'home_page' => true,
+       'login_page' => true,
+       'register_page' => true,
+       'despedida_page' => true,
+       'check_path' => true,
+       'logout_page' => true,
     );
 
     /**
@@ -151,8 +156,33 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         return array(array (), array (  '_controller' => 'Sensio\\Bundle\\DistributionBundle\\Controller\\ConfiguratorController::finalAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_configurator/final',  ),));
     }
 
-    private function getGcaWebBundle_homepageRouteInfo()
+    private function gethome_pageRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/',  ),));
+        return array(array (), array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/home',  ),));
+    }
+
+    private function getlogin_pageRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::loginAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/login',  ),));
+    }
+
+    private function getregister_pageRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::registerAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/register',  ),));
+    }
+
+    private function getdespedida_pageRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::despedidaAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/despedida',  ),));
+    }
+
+    private function getcheck_pathRouteInfo()
+    {
+        return array(array (), array (), array (), array (  0 =>   array (    0 => 'text',    1 => '/login_check',  ),));
+    }
+
+    private function getlogout_pageRouteInfo()
+    {
+        return array(array (), array (), array (), array (  0 =>   array (    0 => 'text',    1 => '/logout',  ),));
     }
 }

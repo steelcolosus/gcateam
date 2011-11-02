@@ -135,12 +135,34 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // GcaWebBundle_homepage
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'GcaWebBundle_homepage');
-            }
-            return array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::indexAction',  '_route' => 'GcaWebBundle_homepage',);
+        // home_page
+        if ($pathinfo === '/home') {
+            return array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::indexAction',  '_route' => 'home_page',);
+        }
+
+        // login_page
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::loginAction',  '_route' => 'login_page',);
+        }
+
+        // register_page
+        if ($pathinfo === '/register') {
+            return array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::registerAction',  '_route' => 'register_page',);
+        }
+
+        // despedida_page
+        if ($pathinfo === '/despedida') {
+            return array (  '_controller' => 'Gca\\WebBundle\\Controller\\HomeController::despedidaAction',  '_route' => 'despedida_page',);
+        }
+
+        // check_path
+        if ($pathinfo === '/login_check') {
+            return array('_route' => 'check_path');
+        }
+
+        // logout_page
+        if ($pathinfo === '/logout') {
+            return array('_route' => 'logout_page');
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
